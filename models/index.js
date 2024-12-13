@@ -3,8 +3,12 @@
 const Sequelize = require("sequelize");
 
 let config = require(__dirname + "/../config/config.js");
-console.log("config", config);
-config = config["development"];
+// console.log("config", config);
+const env = process.env.NODE_ENV || "development"; // "development", "production", undifined
+console.log("env: ", env);
+console.log("NODE_ENV: ", process.env.NODE_ENV);
+
+config = config[env];
 
 const db = {};
 
